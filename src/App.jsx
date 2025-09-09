@@ -7,11 +7,12 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import Profile from './pages/auth/Profile';
-import Practice from './pages/Practice/Practice';
-import ConceptualPractice from './pages/Practice/ConceptualPractice';
-import CodingPractice from './pages/Practice/CodingPractice';
 import NotFound from './pages/NotFound';
+import NewInterview from './pages/NewInterview/NewInterview';
+import SkillsSection from './pages/NewInterview/components/SkillsSection';
+import CodingInterview from './pages/NewInterview/components/CodingInterview';
+import Profile from './pages/Profile/Profile';
+import CodingInterviewSection from './pages/NewInterview/components/mainComponents/CodingInterviewSection';
 
 const App = () => {
   return (
@@ -25,7 +26,13 @@ const App = () => {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path='/new-interview' element={<NewInterview/>}/>
+              <Route path='/interview/skills' element={<SkillsSection/>}/>
+              <Route path='/interview/coding' element={<CodingInterview/>}/>
+              <Route path='/profile' element={<Profile/>} />
               <Route path='*' element={<NotFound />} />
+              <Route path='/interview/coding/1' element={<CodingInterviewSection />} />
             </Routes>
           </main>
           <Footer />

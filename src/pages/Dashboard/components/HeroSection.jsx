@@ -3,6 +3,7 @@ import { ThemeContext } from '../../../context/ThemeContext';
 import { CiChat1 } from "react-icons/ci";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuArrowRight } from "react-icons/lu";
+import {Link} from 'react-router-dom';
 
 const cardData = [
         {
@@ -31,7 +32,7 @@ const HeroSection = () => {
       <ul className='w-full flex gap-x-6'>
         {cardData.map((card, index) => {
             return(
-                <li key={index} className={`${card.title === 'Skills Q&A Sessions' ? 'hover:shadow-[0_0_20px_#5866F24D] bg-gradient-to-r from-[#6B6BFA]/20 to-[#6B6BFA]/10 border-2 border-[#6B6BFA]/20' : 'hover:shadow-[0_0_20px_#5866F24D] bg-gradient-to-r from-[#33CCFF]/20 to-[#33CCFF]/10 border-2 border-[#33CCFF]/20'} w-[50%] rounded-xl p-6 text-white hover:cursor-pointer hover:scale-[1.02] transition-all duration-300 ease-in-out`}>
+                <li key={index} className={`${card.title === 'Skills Q&A Sessions' ? 'hover:shadow-[0_0_20px_#5866F24D] bg-gradient-to-r from-[#6B6BFA]/20 to-[#6B6BFA]/10 border-2 border-[#6B6BFA]/20' : 'hover:shadow-[0_0_20px_#5866F24D] bg-gradient-to-r from-[#33CCFF]/20 to-[#33CCFF]/10 border-2 border-[#33CCFF]/20'} w-[50%] rounded-xl p-6 text-white hover:scale-[1.02] transition-all duration-300 ease-in-out`}>
                     <div className='relative flex items-center space-x-3'>
                         <card.icon className='text-[2.8rem] brightness-125 rounded-xl p-2.5 text-[#6B6BFA]' style={{
                             backgroundColor: theme.background,
@@ -40,7 +41,9 @@ const HeroSection = () => {
                         <h2 className='text-[1.2rem] font-bold'>{card.title}</h2>
                         <p className='text-white/70 text-[0.9rem]'>{card.description}</p>
                         </div>
-                        <LuArrowRight className='absolute right-0 text-[1.4rem] text-white/70 hover:text-white'/>
+                        <Link to='/new-interview'>
+                        <LuArrowRight className='hover:cursor-pointer absolute right-0 text-[1.4rem] text-white/70 hover:text-white'/>
+                        </Link>
                     </div>
                     <div className='flex justify-between mt-4 space-x-4 w-full'>
                         <div className='flex flex-col rounded-2xl items-center p-1.5 w-[50%] bg-[#06091A]/40'>
@@ -64,9 +67,11 @@ const HeroSection = () => {
                             })}
                         </ul>
                     </div>
+                    <Link to='/new-interview'>
                     <button className={`${card.title === 'Skills Q&A Sessions' ? 'bg-[#6B6BFA]/15 text-[#6B6BFA]' : 'bg-[#33CCFF]/15 text-[#33CCFF]' } py-2 mt-10 w-full rounded-xl font-semibold text-[1rem] cursor-pointer hover:scale-[1.02] transition-all duration-300 ease-in-out`}>
                         Start Session
                     </button>
+                    </Link>
                 </li>
             )
         })}
